@@ -1,46 +1,39 @@
 #atributos
-x = []
-n = 5
+# Lista de exemplos: cada item é (entrada, valor_esperado)
+dados = [
+  ([0, 0, 0, 0, 0], 0),
+  ([0, 0, 0, 0, 1], 0),
+  ([1, 1, 1, 1, 1], 1),
+]
 
+n = len(dados[0][0])
 tamanho = range(n)
-for i in tamanho:
-  x.append(int(input("0 ou 1: ")))
+
 
 #pesos
-w = []
+w = [0] * n
 
-for i in tamanho:
-  w.append(0)
 
 #valor esperado
-y = 0
-Y = -1
+y_true = 0
+y_pred = -1
 
 #bias
 b = 0
 
-print(x)
 epoca = 0
 max_epocas = 100
-while y != Y and epoca < max_epocas:
-  z = 0
-  for i  in tamanho:  
-    z += x[i] * w[i]
-  z += b
-  if z >= 0:
-    Y = 1
-  else:
-    Y = 0
-
-  ajuste = y - Y
-
-  print(f"z = {z}")
-  print(f"Y = {Y}")
-  print(f"ajuste = {ajuste}")
-
-  for i in tamanho:
-    w[i] += ajuste * x[i]
-  b += 1 * ajuste
-  epoca += 1
-
-
+for epoca in range(max_epocas):
+  erro_total = 0
+  for x, y in dados:  
+    z = sum(w[i] * x[i] for i in range(n)) + b
+    y_pred = 1 if z >= 0 else 0
+    ajuste = y - y_pred
+    for i in range(n):
+      w[i] += ajuste * x[i]
+    b += 1 * ajuste
+    erro_total += abs(ajuste)
+  if erro_total == 0:
+        break
+print("Pesos finais:", w)
+print("Bias final:", b)
