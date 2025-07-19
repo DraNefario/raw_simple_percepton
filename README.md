@@ -25,9 +25,10 @@ This repository contains a raw, minimal implementation of a simple perceptron in
 
  Adjusts weights and bias via error correction
 
- No external libraries used — pure Python logic
+ No external libraries used, pure Python logic
 
 Purpose
+
   Educational only. This project is not optimized for performance or scalability, it's meant to demystify how neural networks actually work under the hood.
 
 
