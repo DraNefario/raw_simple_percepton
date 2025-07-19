@@ -16,7 +16,7 @@ Fascinated by how the perceptron works, I decided to implement one myself using 
 
 This repository contains that raw, minimal implementation of a simple perceptron, built for educational purposes and to reinforce my understanding of the foundations of machine learning.
 
-# About this project
+## About this project
 This repository contains a raw, minimal implementation of a simple perceptron in Python. It was built entirely from scratch to reinforce my foundational understanding of machine learning and artificial neural networks.
 
  Trains on binary vectors
@@ -27,7 +27,7 @@ This repository contains a raw, minimal implementation of a simple perceptron in
 
  No external libraries used, pure Python logic
 
-Purpose
+### Purpose
 
   Educational only. This project is not optimized for performance or scalability, it's meant to demystify how neural networks actually work under the hood.
 
