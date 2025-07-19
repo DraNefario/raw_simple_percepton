@@ -1,0 +1,46 @@
+#atributos
+x = []
+n = 5
+
+tamanho = range(n)
+for i in tamanho:
+  x.append(int(input("0 ou 1: ")))
+
+#pesos
+w = []
+
+for i in tamanho:
+  w.append(0)
+
+#valor esperado
+y = 0
+Y = -1
+
+#bias
+b = 0
+
+print(x)
+epoca = 0
+max_epocas = 100
+while y != Y and epoca < max_epocas:
+  z = 0
+  for i  in tamanho:  
+    z += x[i] * w[i]
+  z += b
+  if z >= 0:
+    Y = 1
+  else:
+    Y = 0
+
+  ajuste = y - Y
+
+  print(f"z = {z}")
+  print(f"Y = {Y}")
+  print(f"ajuste = {ajuste}")
+
+  for i in tamanho:
+    w[i] += ajuste * x[i]
+  b += 1 * ajuste
+  epoca += 1
+
+
